@@ -14,7 +14,6 @@ export class LazyWrapperComponent  {
 
   async ngOnInit() {
     const lazyContentComponent = await import(`../${this.type}-content/${this.type}-content.component`)
-    console.log(lazyContentComponent)
     const componentClassName = lazyContentComponent[`${this.capitalize(this.type)}ContentComponent`]
     const componentFactory = this.cfr.resolveComponentFactory(componentClassName)
     this.lazyContentContainer.createComponent(componentFactory)
