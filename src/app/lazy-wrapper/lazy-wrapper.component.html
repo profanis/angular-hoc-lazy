@@ -1,8 +1,9 @@
-<p>Your content will display below</p>
-<p>The lazy wrapper can interact with the lazy content</p>
-<button type="button" (click)="onClick()">Click me and an event will send to the lazy component</button>
+<div class="wrapper-container">
 
-<hr />
-<ng-container #lazyContent></ng-container>
-<hr />
-<p>Your content will display above</p>
+  <p>Render your component in the dashed area</p>
+  <div class="child-container mt-3 mb-3">
+    <ng-container #lazyContent></ng-container>  <!-- here is the container -->
+
+  </div>
+
+</div>

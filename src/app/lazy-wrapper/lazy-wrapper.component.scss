@@ -1,0 +1,12 @@
+.wrapper-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+
+  .child-container {
+    padding: 20px;
+    border: 2px dashed #808080;
+    border-radius: 4px;
+  }
+}
