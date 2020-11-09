@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lazy-wrapper',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./lazy-wrapper.component.scss']
 })
 export class LazyWrapperComponent  {
+  @Input() componentType: 'lazy' | 'lazy1'
 }

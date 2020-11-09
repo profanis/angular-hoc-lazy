@@ -2,7 +2,8 @@
 
   <p>Render your component in the dashed area</p>
   <div class="child-container mt-3 mb-3">
-    <app-lazy-content></app-lazy-content>
+    <app-lazy-content *ngIf="componentType === 'lazy'"></app-lazy-content>
+    <app-lazy1-content *ngIf="componentType === 'lazy1'"></app-lazy1-content>
   </div>
 
 </div>
