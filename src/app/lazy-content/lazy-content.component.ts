@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { BaseContentComponent } from '../base-content.component';
 
 @Component({
-  selector: 'app-lazy-content',
-  templateUrl: './lazy-content.component.html',
-  styleUrls: ['./lazy-content.component.scss']
+  template: `
+    This the content of the <span style="color: red">Lazy Load Component</span>
+  `,
 })
 export class LazyContentComponent extends BaseContentComponent {
 

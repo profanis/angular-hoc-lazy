@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BaseContentComponent } from '../base-content.component';
 
 @Component({
-  selector: 'app-lazy1-content',
-  templateUrl: './lazy1-content.component.html',
-  styleUrls: ['./lazy1-content.component.scss']
+  template: `
+    This the content of the <span style="color: green">Lazy1 Load Component</span>
+  `,
 })
 export class Lazy1ContentComponent extends BaseContentComponent implements OnInit {
 
