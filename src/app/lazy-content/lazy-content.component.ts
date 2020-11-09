@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BaseContentComponent } from '../base-content.component';
 
 @Component({
+  selector: 'app-lazy-content',
   template: `
     This the content of the <span style="color: red">Lazy Load Component</span>
   `,
