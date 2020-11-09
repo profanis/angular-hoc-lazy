@@ -1,5 +1,4 @@
-import { Component, ComponentFactory, ComponentFactoryResolver, Input, OnChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { BaseContentComponent } from '../base-content.component';
+import { Component, ComponentFactoryResolver, Input, OnChanges, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-lazy-wrapper',
@@ -15,23 +14,15 @@ export class LazyWrapperComponent implements OnChanges  {
   }
 
   async ngOnChanges() {
-    let componentFactory: ComponentFactory<BaseContentComponent>
-
-    // lazy load component
-    if (this.componentType==='lazy') {
-      const lazyContentComponent = await import(`../lazy-content/lazy-content.component`)
-      componentFactory = this.cfr.resolveComponentFactory(lazyContentComponent.LazyContentComponent)
-    }
-
-    // lazy load component
-    if (this.componentType==='lazy1') {
-      const lazy1ContentComponent = await import(`../lazy1-content/lazy1-content.component`)
-      componentFactory = this.cfr.resolveComponentFactory(lazy1ContentComponent.Lazy1ContentComponent)
-    }
-
+    const lazyContentComponent = await import(`../${this.componentType}-content/${this.componentType}-content.component`)
+    const componentClassName = lazyContentComponent[`${this.capitalize(this.componentType)}ContentComponent`]
+    const componentFactory = this.cfr.resolveComponentFactory(componentClassName)
     this.lazyContentContainer.clear()
     this.lazyContentContainer.createComponent(componentFactory)
   }
 
+  private capitalize(value: string): string {
+    return `${value.charAt(0).toUpperCase()}${value.slice(1).toLowerCase()}`
+  }
 
 }
