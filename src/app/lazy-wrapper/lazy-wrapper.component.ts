@@ -26,6 +26,7 @@ export class LazyWrapperComponent implements OnChanges  {
       componentFactory = this.cfr.resolveComponentFactory(Lazy1ContentComponent)
     }
 
+    this.lazyContentContainer.clear()
     this.lazyContentContainer.createComponent(componentFactory)
   }
 
