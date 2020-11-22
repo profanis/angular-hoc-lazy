@@ -14,6 +14,10 @@ export class LazyWrapperComponent implements OnChanges  {
   }
 
   async ngOnChanges() {
+    if (!this.componentType) {
+      return
+    }
+
     const lazyContentComponent = await import(`../${this.componentType}-content/${this.componentType}-content.component`)
     const componentClassName = lazyContentComponent[`${this.capitalize(this.componentType)}ContentComponent`]
     const componentFactory = this.cfr.resolveComponentFactory(componentClassName)
