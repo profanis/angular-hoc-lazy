@@ -2,5 +2,5 @@
   <button type="button" class="btn btn-primary mr-3" (click)="componentToLoad='lazy'">Load the first</button>
   <button type="button" class="btn btn-primary" (click)="componentToLoad='lazy1'">Load the second</button>
 
-  <app-lazy-wrapper *ngIf="componentToLoad" [componentType]="componentToLoad"></app-lazy-wrapper>
+  <app-lazy-wrapper [componentType]="componentToLoad"></app-lazy-wrapper>
 </div>
