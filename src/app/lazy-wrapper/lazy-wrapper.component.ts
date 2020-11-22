@@ -16,6 +16,10 @@ export class LazyWrapperComponent implements OnChanges  {
   constructor(private cfr: ComponentFactoryResolver) {}
 
   ngOnChanges() {
+    if (!this.componentType) {
+      return
+    }
+
     let componentFactory: ComponentFactory<BaseContentComponent>
 
     if (this.componentType === 'lazy') {
