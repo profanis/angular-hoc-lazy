@@ -10,6 +10,8 @@
   ],
   "include": [
     "src/**/*.d.ts",
+    "src/app/lazy-content/lazy-content.component.ts",
+    "src/app/lazy1-content/lazy1-content.component.ts"
   ],
   "exclude": [
     "src/test.ts",

@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, ComponentFactoryResolver, Input, OnChanges, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-lazy-wrapper',
@@ -8,11 +8,10 @@ import { Component, ComponentFactoryResolver, Input, OnChanges, ViewChild, ViewC
   providers: [TitleCasePipe]
 })
 export class LazyWrapperComponent implements OnChanges  {
-  @ViewChild('lazyContent', { read: ViewContainerRef, static: true }) lazyContentContainer: ViewContainerRef
-
   @Input() componentType: 'lazy' | 'lazy1'
+  component: any
 
-  constructor(private cfr: ComponentFactoryResolver, private titleCasePipe: TitleCasePipe) {
+  constructor(private titleCasePipe: TitleCasePipe) {
   }
 
   async ngOnChanges() {
@@ -21,9 +20,6 @@ export class LazyWrapperComponent implements OnChanges  {
     }
 
     const lazyContentComponent = await import(`../${this.componentType}-content/${this.componentType}-content.component`)
-    const componentClassName = lazyContentComponent[`${this.titleCasePipe.transform(this.componentType)}ContentComponent`]
-    const componentFactory = this.cfr.resolveComponentFactory(componentClassName)
-    this.lazyContentContainer.clear()
-    this.lazyContentContainer.createComponent(componentFactory)
+    this.component =  lazyContentComponent[`${this.titleCasePipe.transform(this.componentType)}ContentComponent`]
   }
 }
