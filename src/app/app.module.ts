@@ -15,9 +15,10 @@ import { Lazy1ContentComponent } from "./lazy1-content/lazy1-content.component";
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
-  // entryComponents: [
-  //   LazyContentComponent,
-  //   Lazy1ContentComponent
-  // ]
+  // As of Angular version 13, `entryComponents` are no longer necessary
+  /* entryComponents: [
+    LazyContentComponent,
+    Lazy1ContentComponent
+  ] */
 })
 export class AppModule {}
